@@ -1,4 +1,4 @@
-package com.epam.hw34.exception;
+package com.epam.hw34.service.exception;
 
 public class EntityNotFoundException extends RuntimeException {
 
