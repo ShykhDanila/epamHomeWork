@@ -7,7 +7,9 @@ import com.epam.hw34.repository.LibraryRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -27,17 +29,22 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
     @Override
-    public Library addBook(String libraryId, Book book) {
-        Library library = libraries.get(libraryId);
+    public Library addBook(Library library, Book book) {
         library.getBooks().add(book);
         return library;
     }
 
     @Override
-    public Set<Library> getLibraryByBookId(String bookId) {
-        Book book = bookRepository.getById(bookId);
+    public Optional<Library> getLibraryByName(String nameLibrary) {
         return libraries.values().stream()
-                .filter(lib -> lib.getBooks().equals(book))
+                .filter(lib -> lib.getName().equals(nameLibrary))
+                .findFirst();
+    }
+
+    @Override
+    public Set<Library> getLibraryByBook(Book book) {
+        return libraries.values().stream()
+                .filter(lib -> lib.getBooks().contains(book))
                 .collect(Collectors.toSet());
     }
 }

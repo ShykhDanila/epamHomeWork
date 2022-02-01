@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 import static java.lang.String.format;
@@ -40,17 +41,32 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public LibraryDto addBook(String libraryId, BookDto bookDto) {
-        Book book = BookMapper.INSTANCE.mapBook(bookDto);
-        Library library = libraryRepo.addBook(libraryId, book);
-        log.info("library {} add book {}", library.getName(), book.getTitle());
-        return LibraryMapper.INSTANCE.mapLibraryDto(library);
+    public LibraryDto addBook(String libraryName, String bookTitle) {
+        Optional<Library> library =libraryRepo.getLibraryByName(libraryName);
+        if (!library.isPresent()){
+            log.warn("dont exist's library with name {}", libraryName);
+            throw new EntityNotFoundException(format("Dont exist's book with title {}", bookTitle));
+        }
+        Optional<Book> book = bookRepo.getByTitle(bookTitle);
+        if (!book.isPresent()){
+            log.warn("dont exist's book with title {}", bookTitle);
+            throw new EntityNotFoundException(format("Dont exist's book with title {}", bookTitle));
+        }
+        Library lib = libraryRepo.addBook(library.get(), book.get());
+        log.info("library {} add book {}", lib.getName(), book.get().getTitle());
+        return LibraryMapper.INSTANCE.mapLibraryDto(lib);
     }
 
     @Override
-    public Set<LibraryDto> getLibraryByBookId(String bookId) {
-        log.info("get Library by book id {}", bookId);
-        Set<Library> libraries = libraryRepo.getLibraryByBookId(bookId);
+    public Set<LibraryDto> getLibraryByBookTitle(String bookTitle) {
+        log.info("get Library by book title {}", bookTitle);
+        Optional<Book> book = bookRepo.getByTitle(bookTitle);
+        if (!book.isPresent()){
+            System.out.println(book.get());
+            log.warn("dont exist's book with title {}", bookTitle);
+            throw new EntityNotFoundException(format("Dont exist's book with title {}", bookTitle));
+        }
+        Set<Library> libraries = libraryRepo.getLibraryByBook(book.get());
         return LibraryMapper.INSTANCE.mapLibraryDtos(libraries);
     }
 

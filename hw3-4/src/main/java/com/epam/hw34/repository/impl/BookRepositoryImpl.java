@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -33,5 +34,12 @@ public class BookRepositoryImpl implements BookRepository {
         return books.values().stream()
                 .filter(b -> b.getAuthorId().equals(authorId))
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Optional<Book> getByTitle(String bookTitle) {
+        return books.values().stream()
+                .filter(b -> b.getTitle().equals(bookTitle))
+                .findFirst();
     }
 }

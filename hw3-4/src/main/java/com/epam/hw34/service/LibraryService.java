@@ -10,9 +10,9 @@ public interface LibraryService {
 
     LibraryDto createLibrary(LibraryDto newLibrary);
 
-    LibraryDto addBook(String libraryId, BookDto bookDto);
+    LibraryDto addBook(String libraryName, String bookTitle);
 
-    Set<LibraryDto> getLibraryByBookId(String bookId);
+    Set<LibraryDto> getLibraryByBookTitle(String bookTitle);
 
     AuthorDto getAuthorInfo(String authorId);
 

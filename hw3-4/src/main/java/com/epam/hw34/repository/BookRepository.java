@@ -2,6 +2,7 @@ package com.epam.hw34.repository;
 
 import com.epam.hw34.model.Book;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface BookRepository {
@@ -11,5 +12,7 @@ public interface BookRepository {
     Book getById(String bookId);
 
     Set<Book> getBooksByAuthor(String authorId);
+
+    Optional<Book> getByTitle(String bookTitle);
 }
 
