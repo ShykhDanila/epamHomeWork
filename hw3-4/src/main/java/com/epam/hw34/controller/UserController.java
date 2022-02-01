@@ -1,6 +1,6 @@
 package com.epam.hw34.controller;
 
-import com.epam.hw34.dto.UserDto;
+import com.epam.hw34.controller.dto.UserDto;
 import com.epam.hw34.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

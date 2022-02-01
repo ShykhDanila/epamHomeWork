@@ -1,7 +1,7 @@
 package com.epam.hw34.service;
 
 
-import com.epam.hw34.dto.UserDto;
+import com.epam.hw34.controller.dto.UserDto;
 
 import java.util.List;
 

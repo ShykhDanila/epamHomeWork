@@ -1,4 +1,4 @@
-package com.epam.hw34.dto;
+package com.epam.hw34.controller.dto;
 
 import lombok.Builder;
 import lombok.Data;

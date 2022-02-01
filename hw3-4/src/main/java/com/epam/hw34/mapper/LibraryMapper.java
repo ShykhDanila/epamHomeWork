@@ -1,6 +1,6 @@
 package com.epam.hw34.mapper;
 
-import com.epam.hw34.dto.LibraryDto;
+import com.epam.hw34.controller.dto.LibraryDto;
 import com.epam.hw34.model.Library;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

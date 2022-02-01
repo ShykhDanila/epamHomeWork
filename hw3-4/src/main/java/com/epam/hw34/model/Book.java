@@ -1,6 +1,6 @@
 package com.epam.hw34.model;
 
-import com.epam.hw34.dto.Genre;
+import com.epam.hw34.controller.dto.Genre;
 import lombok.Data;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.epam.hw34.service.impl;
 
-import com.epam.hw34.dto.UserDto;
+import com.epam.hw34.controller.dto.UserDto;
 import com.epam.hw34.model.User;
 import com.epam.hw34.repository.UserRepository;
 import com.epam.hw34.service.UserService;

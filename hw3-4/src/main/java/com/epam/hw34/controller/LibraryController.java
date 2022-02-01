@@ -1,8 +1,8 @@
 package com.epam.hw34.controller;
 
-import com.epam.hw34.dto.AuthorDto;
-import com.epam.hw34.dto.BookDto;
-import com.epam.hw34.dto.LibraryDto;
+import com.epam.hw34.controller.dto.AuthorDto;
+import com.epam.hw34.controller.dto.BookDto;
+import com.epam.hw34.controller.dto.LibraryDto;
 import com.epam.hw34.service.LibraryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

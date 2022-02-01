@@ -1,4 +1,4 @@
-package com.epam.hw34.dto;
+package com.epam.hw34.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
