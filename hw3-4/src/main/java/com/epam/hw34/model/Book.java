@@ -16,7 +16,6 @@ public class Book {
     private int pages;
     private int publicationYear;
     private Set<Genre> genres;
-    private Author author;
     private List<Library> libraries;
 
 }
