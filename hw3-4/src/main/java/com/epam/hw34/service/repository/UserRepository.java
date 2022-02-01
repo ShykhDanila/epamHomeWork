@@ -1,7 +1,7 @@
-package com.epam.hw34.repository;
+package com.epam.hw34.service.repository;
 
 
-import com.epam.hw34.model.User;
+import com.epam.hw34.service.model.User;
 
 import java.util.List;
 

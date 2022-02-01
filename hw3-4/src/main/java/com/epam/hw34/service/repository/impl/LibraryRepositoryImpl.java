@@ -1,13 +1,12 @@
-package com.epam.hw34.repository.impl;
+package com.epam.hw34.service.repository.impl;
 
-import com.epam.hw34.model.Book;
-import com.epam.hw34.model.Library;
-import com.epam.hw34.repository.BookRepository;
-import com.epam.hw34.repository.LibraryRepository;
+import com.epam.hw34.service.model.Book;
+import com.epam.hw34.service.model.Library;
+import com.epam.hw34.service.repository.BookRepository;
+import com.epam.hw34.service.repository.LibraryRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;

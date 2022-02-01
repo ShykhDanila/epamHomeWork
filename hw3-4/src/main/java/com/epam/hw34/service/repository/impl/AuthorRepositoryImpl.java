@@ -1,8 +1,8 @@
-package com.epam.hw34.repository.impl;
+package com.epam.hw34.service.repository.impl;
 
-import com.epam.hw34.model.Author;
-import com.epam.hw34.repository.AuthorRepository;
-import com.epam.hw34.repository.BookRepository;
+import com.epam.hw34.service.model.Author;
+import com.epam.hw34.service.repository.AuthorRepository;
+import com.epam.hw34.service.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

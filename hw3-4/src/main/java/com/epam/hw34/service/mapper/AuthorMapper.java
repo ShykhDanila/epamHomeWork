@@ -1,7 +1,7 @@
-package com.epam.hw34.mapper;
+package com.epam.hw34.service.mapper;
 
 import com.epam.hw34.controller.dto.AuthorDto;
-import com.epam.hw34.model.Author;
+import com.epam.hw34.service.model.Author;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

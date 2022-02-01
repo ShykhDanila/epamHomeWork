@@ -1,6 +1,6 @@
-package com.epam.hw34.repository;
+package com.epam.hw34.service.repository;
 
-import com.epam.hw34.model.Book;
+import com.epam.hw34.service.model.Book;
 
 import java.util.Optional;
 import java.util.Set;

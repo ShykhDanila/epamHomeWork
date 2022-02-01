@@ -1,4 +1,4 @@
-package com.epam.hw34.model;
+package com.epam.hw34.service.model;
 
 import com.epam.hw34.controller.dto.Genre;
 import lombok.Data;

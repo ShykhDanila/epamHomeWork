@@ -1,6 +1,6 @@
-package com.epam.hw34.repository;
+package com.epam.hw34.service.repository;
 
-import com.epam.hw34.model.Author;
+import com.epam.hw34.service.model.Author;
 
 public interface AuthorRepository {
 

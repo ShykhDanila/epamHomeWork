@@ -1,8 +1,8 @@
 package com.epam.hw34.service.impl;
 
 import com.epam.hw34.controller.dto.UserDto;
-import com.epam.hw34.model.User;
-import com.epam.hw34.repository.UserRepository;
+import com.epam.hw34.service.model.User;
+import com.epam.hw34.service.repository.UserRepository;
 import com.epam.hw34.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

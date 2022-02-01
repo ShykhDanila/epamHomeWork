@@ -1,7 +1,7 @@
-package com.epam.hw34.repository.impl;
+package com.epam.hw34.service.repository.impl;
 
-import com.epam.hw34.model.User;
-import com.epam.hw34.repository.UserRepository;
+import com.epam.hw34.service.model.User;
+import com.epam.hw34.service.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
