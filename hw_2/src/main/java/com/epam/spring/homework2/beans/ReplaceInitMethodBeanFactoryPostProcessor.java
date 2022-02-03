@@ -6,9 +6,9 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OtherBean implements BeanFactoryPostProcessor {
+public class ReplaceInitMethodBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
-    public OtherBean() {
+    public ReplaceInitMethodBeanFactoryPostProcessor() {
         System.out.println("OtherBean");
     }
 

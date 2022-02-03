@@ -1,6 +1,6 @@
 package com.epam.spring.homework2.validator;
 
-public interface MyValidator {
+public interface Validatable {
 
     void validate();
 }

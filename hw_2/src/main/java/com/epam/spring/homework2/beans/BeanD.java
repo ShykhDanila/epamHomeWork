@@ -1,23 +1,11 @@
 package com.epam.spring.homework2.beans;
 
-import com.epam.spring.homework2.validator.MyValidator;
+import com.epam.spring.homework2.validator.Validatable;
 
-public class BeanD implements MyValidator {
-
-    private String name;
-    private double value;
+public class BeanD extends DefaultBean {
 
     public BeanD(String name, double value) {
-        this.name = name;
-        this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "BeanD{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                '}';
+        super(name, value);
     }
 
     private void initBeanD() {
@@ -26,14 +14,5 @@ public class BeanD implements MyValidator {
 
     private void destroyBeanD() {
         System.out.println("destroy BeanD");
-    }
-
-    @Override
-    public void validate() {
-        if (name == null || name.isEmpty()) {
-            name = "VALIDATE beanD";
-        } else if (value < 0) {
-            value = 0;
-        }
     }
 }

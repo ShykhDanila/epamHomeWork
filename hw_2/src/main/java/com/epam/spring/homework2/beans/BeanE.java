@@ -1,26 +1,14 @@
 package com.epam.spring.homework2.beans;
 
-import com.epam.spring.homework2.validator.MyValidator;
+import com.epam.spring.homework2.validator.Validatable;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-public class BeanE implements MyValidator {
-
-    private String name;
-    private double value;
+public class BeanE extends DefaultBean {
 
     public BeanE(String name, double value) {
-        this.name = name;
-        this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "BeanE{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                '}';
+        super(name, value);
     }
 
     @PostConstruct
@@ -33,12 +21,4 @@ public class BeanE implements MyValidator {
         System.out.println("preDestroy BeanE");
     }
 
-    @Override
-    public void validate() {
-        if (name == null || name.isEmpty()) {
-            name = "VALIDATE beanE";
-        } else if (value < 0) {
-            value = 0;
-        }
-    }
 }
