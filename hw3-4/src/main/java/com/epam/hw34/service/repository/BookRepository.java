@@ -1,17 +1,13 @@
 package com.epam.hw34.service.repository;
 
 import com.epam.hw34.service.model.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-import java.util.Set;
 
-public interface BookRepository {
-
-    Book createBook(Book newBook);
-
-    Book getById(String bookId);
-
-    Set<Book> getBooksByAuthor(String authorId);
+@Repository
+public interface BookRepository extends JpaRepository<Book, Long> {
 
     Optional<Book> getByTitle(String bookTitle);
 }

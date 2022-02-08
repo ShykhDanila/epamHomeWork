@@ -10,7 +10,7 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 @Data
 public class AuthorDto {
     @JsonProperty(access = READ_ONLY)
-    public String id;
+    public Long id;
     @NotBlank
     public String name;
     public String nickname;

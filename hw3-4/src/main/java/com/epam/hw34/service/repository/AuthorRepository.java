@@ -1,11 +1,11 @@
 package com.epam.hw34.service.repository;
 
 import com.epam.hw34.service.model.Author;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AuthorRepository {
+@Repository
+public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    Author getById(String authorId);
-
-    Author create(Author author);
-
+    boolean existsAuthorById(Long id);
 }

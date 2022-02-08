@@ -10,6 +10,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -35,9 +38,30 @@ public class LibraryController {
 
     @ApiOperation("Create Library")
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
+    @PostMapping("/create")
     public LibraryDto createLibrary(@RequestBody LibraryDto libraryDto) {
         return libraryService.createLibrary(libraryDto);
+    }
+
+    @ApiOperation("All libraries")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    public List<LibraryDto> getAllLibraries() {
+        return libraryService.getAllLibraries();
+    }
+
+    @ApiOperation("Get library")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{address}")
+    public LibraryDto getLibrary(@PathVariable String address) {
+        return libraryService.getLibrary(address);
+    }
+
+    @ApiOperation("Delete library")
+    @DeleteMapping(value = "/{address}")
+    public ResponseEntity<Void> deleteLibrary(@PathVariable String address) {
+        libraryService.deleteLibrary(address);
+        return ResponseEntity.noContent().build();
     }
 
     @ApiOperation("Library add book")
@@ -57,7 +81,7 @@ public class LibraryController {
     @ApiOperation("Get author by id")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/author/{authorId}")
-    public AuthorDto getAuthorById(@PathVariable String authorId) {
+    public AuthorDto getAuthorById(@PathVariable Long authorId) {
         return libraryService.getAuthorInfo(authorId);
     }
 
@@ -70,14 +94,14 @@ public class LibraryController {
 
     @ApiOperation("Get author books")
     @GetMapping(value = "/author/{authorId}/book")
-    public Set<BookDto> getAuthorBooks(@PathVariable String authorId) {
+    public Set<BookDto> getAuthorBooks(@PathVariable Long authorId) {
         return libraryService.getAuthorBooks(authorId);
     }
 
     @ApiOperation("Add author books")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/author/{authorId}/book")
-    public BookDto createBook(@PathVariable String authorId, @RequestBody BookDto bookDto) {
+    public BookDto createBook(@PathVariable Long authorId, @RequestBody BookDto bookDto) {
         return libraryService.createBook(authorId, bookDto);
     }
 

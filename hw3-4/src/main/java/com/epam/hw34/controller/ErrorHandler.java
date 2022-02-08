@@ -1,6 +1,9 @@
 package com.epam.hw34.controller;
 
+import com.epam.hw34.service.exception.AuthorAlreadyExistsException;
 import com.epam.hw34.service.exception.EntityNotFoundException;
+import com.epam.hw34.service.exception.LibraryAlreadyExistsException;
+import com.epam.hw34.service.exception.UserAlreadyExistsException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -28,6 +31,27 @@ public class ErrorHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Error handleEntityNotFoundException(EntityNotFoundException ex) {
         log.error("handleEntityNotFoundException: exception {}", ex.getMessage(), ex);
+        return new Error(ex.getMessage());
+    }
+
+    @ExceptionHandler(AuthorAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error handleAuthorAlreadyExistsException(AuthorAlreadyExistsException ex) {
+        log.error("handleAuthorAlreadyExistsException: exception {}", ex.getMessage(), ex);
+        return new Error(ex.getMessage());
+    }
+
+    @ExceptionHandler(LibraryAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error handleLibraryAlreadyExistsException(LibraryAlreadyExistsException ex) {
+        log.error("handleLibraryAlreadyExistsException: exception {}", ex.getMessage(), ex);
+        return new Error(ex.getMessage());
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
+        log.error("handleUserAlreadyExistsException: exception {}", ex.getMessage(), ex);
         return new Error(ex.getMessage());
     }
 

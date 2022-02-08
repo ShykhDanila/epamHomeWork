@@ -20,12 +20,21 @@ import java.util.List;
 public class SwaggerConfig {
 
   @Bean
-  public Docket apiV1() {
+  public Docket libraryApi() {
     return new Docket(DocumentationType.SWAGGER_2)
-        .groupName("api")
+        .groupName("library")
         .select()
         .apis(RequestHandlerSelectors.basePackage("com.epam.hw34.controller"))
         .paths(PathSelectors.ant("/library/**"))
+        .build();
+  }
+  @Bean
+  public Docket userApi() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .groupName("user")
+        .select()
+        .apis(RequestHandlerSelectors.basePackage("com.epam.hw34.controller"))
+        .paths(PathSelectors.ant("/user/**"))
         .build();
   }
 

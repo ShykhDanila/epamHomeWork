@@ -1,18 +1,20 @@
 package com.epam.hw34.service.repository;
 
-
 import com.epam.hw34.service.model.Book;
 import com.epam.hw34.service.model.Library;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.Set;
 
-public interface LibraryRepository {
-    Library createLibrary(Library newLibrary);
+@Repository
+public interface LibraryRepository extends JpaRepository<Library, Long> {
+    Optional<Library> getLibraryByLibraryName(String nameLibrary);
 
-    Library addBook(Library library, Book book);
+    Optional<Set<Library>> getLibraryByBooks(Book book);
 
-    Optional<Library> getLibraryByName(String nameLibrary);
+    Optional<Library> findByAddress(String address);
 
-    Set<Library> getLibraryByBook(Book book);
+    boolean existsByAddress(String address);
 }
